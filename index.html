@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فرزند ایران</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: #1B2A4A;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .wrap {
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+  }
+  .icon { font-size: 3rem; margin-bottom: 28px; display: block; }
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.45;
+    margin-bottom: 18px;
+  }
+  h1 span { color: #C5DFF8; }
+  .sub {
+    font-size: 1rem;
+    color: rgba(197,223,248,0.7);
+    line-height: 1.85;
+    margin-bottom: 44px;
+    font-weight: 400;
+  }
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(197,223,248,0.2);
+    border-radius: 20px;
+    padding: 32px 28px;
+  }
+  .fg { margin-bottom: 14px; text-align: right; }
+  .fl { display: block; font-size: .8rem; font-weight: 600; color: #C5DFF8; margin-bottom: 6px; }
+  .fi {
+    width: 100%; padding: 12px 14px; border-radius: 10px;
+    border: 1.5px solid rgba(197,223,248,0.25);
+    background: rgba(255,255,255,0.06);
+    font-family: 'Vazirmatn', sans-serif; font-size: .92rem;
+    color: #ffffff; outline: none;
+    transition: border-color .2s;
+  }
+  .fi::placeholder { color: rgba(197,223,248,0.35); }
+  .fi:focus { border-color: #C5DFF8; }
+  .amounts {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 8px; margin-bottom: 14px;
+  }
+  .amt {
+    padding: 11px 6px; border-radius: 9px;
+    border: 1.5px solid rgba(197,223,248,0.25);
+    background: rgba(255,255,255,0.04);
+    color: #C5DFF8;
+    font-family: 'Vazirmatn', sans-serif; font-weight: 700; font-size: .85rem;
+    cursor: pointer; transition: all .18s;
+  }
+  .amt:hover, .amt.on {
+    background: #C5DFF8; color: #1B2A4A; border-color: #C5DFF8;
+  }
+  .btn {
+    width: 100%; padding: 15px;
+    background: #C5DFF8; color: #1B2A4A;
+    border: none; border-radius: 50px;
+    font-family: 'Vazirmatn', sans-serif; font-weight: 800; font-size: 1rem;
+    cursor: pointer; transition: all .2s;
+    margin-top: 6px;
+  }
+  .btn:hover { background: #A8D4F5; transform: translateY(-1px); }
+  .secure {
+    font-size: .73rem; color: rgba(197,223,248,0.4);
+    margin-top: 12px;
+  }
+  @media(max-width:480px) {
+    .amounts { grid-template-columns: repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="icon">💙</span>
+  <h1>جمع‌آوری کمک مالی برای<br><span>بخشیدن زندگی به فرزند ایران</span></h1>
+
+
+  <div class="card">
+    <div class="fg">
+      <label class="fl">مبلغ کمک (تومان)</label>
+      <div class="amounts">
+        <button class="amt" onclick="pick(this)">۵۰,۰۰۰</button>
+        <button class="amt on" onclick="pick(this)">۲۰۰,۰۰۰</button>
+        <button class="amt" onclick="pick(this)">۵۰۰,۰۰۰</button>
+        <button class="amt" onclick="pick(this)">۱,۰۰۰,۰۰۰</button>
+        <button class="amt" onclick="pick(this)">۲,۰۰۰,۰۰۰</button>
+        <button class="amt" onclick="pick(this,'c')">دلخواه</button>
+      </div>
+      <input type="number" class="fi" id="custom" placeholder="مبلغ دلخواه به تومان" style="display:none">
+    </div>
+    <div class="fg">
+      <label class="fl">شماره موبایل (برای ارسال رسید)</label>
+      <input type="tel" class="fi" placeholder="۰۹۱۲۳۴۵۶۷۸۹" dir="ltr">
+    </div>
+    <button class="btn" onclick="go()">پرداخت و کمک به فرزند ایران</button>
+    <div class="secure">🔒 پرداخت امن — اطلاعات کارت ذخیره نمی‌شود</div>
+  </div>
+</div>
+
+<script>
+  function pick(btn, c) {
+    document.querySelectorAll('.amt').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    document.getElementById('custom').style.display = c === 'c' ? 'block' : 'none';
+  }
+  function go() {
+    alert('برای اتصال به درگاه پرداخت، باید با یک ارائه‌دهنده بانکی قرارداد بسته شود.');
+  }
+</script>
+</body>
+</html>
